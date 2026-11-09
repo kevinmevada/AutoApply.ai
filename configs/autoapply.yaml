@@ -1,0 +1,37 @@
+application:
+  name: HIVI AutoApply
+  version: 0.1.0
+  environment: development
+
+ui:
+  window_width: 1100
+  window_height: 760
+
+browser:
+  engine: chromium
+  channel: chrome  # System Google Chrome (not Playwright's Chrome for Testing)
+  headless: false
+  persistent_context: true
+  navigation_timeout_ms: 60000
+  wait_until: domcontentloaded
+  user_data_dir: null  # Resolved under the OS user-data directory at runtime.
+
+security:
+  allowed_schemes:
+    - https
+    - http
+  reject_embedded_credentials: true
+  block_localhost: true
+  block_private_networks: true
+  validate_redirect_destinations: true
+
+logging:
+  level: INFO
+  console: true
+  file_name: autoapply.log
+  redact_personal_data: true
+
+inference:
+  enabled: false
+  base_url: http://127.0.0.1:8000
+  model: null
